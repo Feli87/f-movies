@@ -59,3 +59,7 @@
     justify-content: center;
     align-items: center;
 }
+
+.movie-related-card{
+    margin: 0.5em;
+}

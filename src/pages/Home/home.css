@@ -2,8 +2,11 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+    align-items: flex-start;
+    align-content: flex-start;
     flex-wrap: wrap;
     padding-top: 50px;
+    min-height: calc(100vh - 50px);
 }
 .home-main-div{
     /* background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); */
@@ -15,3 +18,68 @@
     color: antiquewhite;
     text-align: center;
 }
+.home-paginator-div{
+    display: flex;
+    width: 100%;
+    justify-content:center;
+    align-items: center;
+}
+.home-paginator-div-col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1em;
+    margin-right: 1em;
+    height: 50px;
+    max-height: 50px;
+   
+    color: antiquewhite;
+    border-radius: 5px;
+}
+.top-paginator{
+    padding-top: 100px;
+}
+.bottom-paginator{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.home-paginator-div-col button{
+   outline: none;
+    background: transparent;
+    color: antiquewhite;
+    padding: 1em;
+    border: none;
+    height: 50px;
+    max-height: 50px;
+    border-radius: 5px;
+    background-color: rgb(32, 32, 32);
+}
+.home-paginator-div-col button:hover{
+    outline: none;
+     background-color: rgb(44, 43, 43);
+     color: antiquewhite;
+    cursor: pointer;    
+     border: none;
+ }
+.page-paginator-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.page-paginator-col h4{
+   margin: 0;
+}
+ .home-paginator-div-col button:disabled{
+    outline: none;
+     background-color: rgb(167, 164, 164);
+     color: antiquewhite;
+    cursor: not-allowed;    
+     border: none;
+ }
+
+ .page-paddin{
+     padding: 1em;
+     background-color: rgb(32, 32, 32);
+ }

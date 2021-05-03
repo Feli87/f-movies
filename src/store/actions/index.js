@@ -40,7 +40,7 @@ export const GET_SEARCH_MOVIE_FAILURE = "GET_SEARCH_MOVIE_FAILURE";
 export const getMovies = (page) => {
 
     return (dispatch) => {
-
+        
         dispatch(getMoviesRequest());
 
         const options = {
@@ -48,14 +48,16 @@ export const getMovies = (page) => {
             url: `https://api.themoviedb.org/3/movie/top_rated`,
             params: {
                 api_key: "d6457739d79b36fbc37f3aead5da67a8",
-                language: "es-ES",
+                language: localStorage.getItem('i18nextLng')  === "es" ? "es-ES" : "en-US",
                 page: parseInt(page),
             },
             headers: { 'Content-Type': 'application/json' },
         };
 
         axios.request(options).then(movies => {
+
             dispatch(getMoviesSuccess(movies.data));
+
         }).catch(error => {
             dispatch(getMoviesFailure(error));
         });
@@ -93,7 +95,7 @@ export const getMovieDetails = (idMovie) => {
             url: `https://api.themoviedb.org/3/movie/${idMovie}`,
             params: {
                 api_key: "d6457739d79b36fbc37f3aead5da67a8",
-                language: "es-ES",
+                language: localStorage.getItem('i18nextLng')  === "es" ? "es-ES" : "en-US",
                 page: 1,
             },
             headers: { 'Content-Type': 'application/json' },
@@ -181,7 +183,7 @@ export const getRelatedMovies = (idMovie) => {
             url: `https://api.themoviedb.org/3/movie/${idMovie}/similar`,
             params: {
                 api_key: "d6457739d79b36fbc37f3aead5da67a8",
-                language: "es-ES",
+                language: localStorage.getItem('i18nextLng')  === "es" ? "es-ES" : "en-US",
                 page: 1,
             },
             headers: { 'Content-Type': 'application/json' },
@@ -225,7 +227,7 @@ export const getMovieVideos = (idMovie) => {
             url: `https://api.themoviedb.org/3/movie/${idMovie}/videos`,
             params: {
                 api_key: "d6457739d79b36fbc37f3aead5da67a8",
-                language: "en-US",
+                language: localStorage.getItem('i18nextLng')  === "es" ? "es-ES" : "en-US",
             },
             headers: { 'Content-Type': 'application/json' },
         };
@@ -268,7 +270,7 @@ export const getMovieKeywords = (idMovie) => {
             url: `https://api.themoviedb.org/3/movie/${idMovie}/keywords`,
             params: {
                 api_key: "d6457739d79b36fbc37f3aead5da67a8",
-                language: "en-US",
+                language: localStorage.getItem('i18nextLng')  === "es" ? "es-ES" : "en-US",
             },
             headers: { 'Content-Type': 'application/json' },
         };
@@ -311,9 +313,9 @@ export const getSearchMovie = (query, page) => {
             url: `https://api.themoviedb.org/3/search/movie`,
             params: {
                 api_key: "d6457739d79b36fbc37f3aead5da67a8",
-                language: "es-ES",
+                language: localStorage.getItem('i18nextLng')  === "es" ? "es-ES" : "en-US",
                 query:query,
-                page:page
+                page:parseInt(page)
             },
             headers: { 'Content-Type': 'application/json' },
         };
